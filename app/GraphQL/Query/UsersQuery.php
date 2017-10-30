@@ -19,9 +19,18 @@ class UsersQuery extends Query{
 
     public function args(){
         return [
-            'id' => ['name' => 'id', 'type' => Type::string()],
-            'name' => ['name' => 'name', 'type' => Type::string()],
-            'email' => ['name' => 'email', 'type' => Type::string()]
+            'id' => [
+                'name' => 'id',
+                'type' => Type::string()
+            ],
+            'name' => [
+                'name' => 'name', 
+                'type' => Type::string()
+            ],
+            'email' => [
+                'name' => 'email', 
+                'type' => Type::string()
+            ]
         ];
     }
 

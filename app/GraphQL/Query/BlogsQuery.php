@@ -22,19 +22,19 @@ class BlogsQuery extends Query{
         return [
             'id' => [
                 'name' => 'id', 
-                 Type::string()
+                 'type' => Type::string()
             ],
             'title' => [
                 'name' => 'title', 
-                 Type::string()
+                 'type' => Type::string()
             ],
             'description' => [
                 'name' => 'description',
-                 Type::string()
+                 'type' => Type::string()
             ],
             'author' => [
                 'name' => 'author',
-                 Type::string()
+                 'type' => Type::string()
             ]
         ];
     }
