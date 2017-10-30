@@ -1,0 +1,43 @@
+<?php
+namespace App\GraphQL\Query;
+
+use GraphQL;
+use GraphQL\Type\Definition\Type;
+use Folklore\GraphQL\Support\Query;
+use App\Blog;
+/**
+ * Blog Query
+ */
+class BlogsQuery extends Query{
+    
+    protected $attributes = [
+        'name' => 'blogs'
+    ];
+
+    public function type(){
+        return Type::listOf(GraphQL::type('Blog'));
+    }
+
+    public function args(){
+        return [
+            'id' => ['name' => 'id', Type::string()],
+            'title' => ['name' => 'title', Type::string()],
+            'description' => ['name' => 'description', Type::string()],
+            'author' => ['name' => 'author', Type::string()]
+        ];
+    }
+
+    public function resolve(){
+        if(isset($args['id'])){
+            return Blog::where('id', $args['id'])->get();
+        }else if(isset($args['title'])){
+            return Blog::where('title', $agrs['title'])->get();
+        }else if(isset($args['description'])){
+            return Blog::where('description', $args['description'])->get();
+        }else if(isset($args['author'])){
+            return Blog::where('author', $args['author'])->get();
+        }else{
+            return Blog::all();
+        }
+    }
+}
