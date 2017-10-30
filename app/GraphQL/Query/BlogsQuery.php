@@ -20,10 +20,22 @@ class BlogsQuery extends Query{
 
     public function args(){
         return [
-            'id' => ['name' => 'id', Type::string()],
-            'title' => ['name' => 'title', Type::string()],
-            'description' => ['name' => 'description', Type::string()],
-            'author' => ['name' => 'author', Type::string()]
+            'id' => [
+                'name' => 'id', 
+                 Type::string()
+            ],
+            'title' => [
+                'name' => 'title', 
+                 Type::string()
+            ],
+            'description' => [
+                'name' => 'description',
+                 Type::string()
+            ],
+            'author' => [
+                'name' => 'author',
+                 Type::string()
+            ]
         ];
     }
 
