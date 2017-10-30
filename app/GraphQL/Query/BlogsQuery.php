@@ -39,7 +39,7 @@ class BlogsQuery extends Query{
         ];
     }
 
-    public function resolve(){
+    public function resolve($root, $args){
         if(isset($args['id'])){
             return Blog::where('id', $args['id'])->get();
         }else if(isset($args['title'])){
