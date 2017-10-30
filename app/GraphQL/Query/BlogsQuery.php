@@ -42,14 +42,21 @@ class BlogsQuery extends Query{
     public function resolve($root, $args){
         if(isset($args['id'])){
             return Blog::where('id', $args['id'])->get();
-        }else if(isset($args['title'])){
-            return Blog::where('title', $agrs['title'])->get();
-        }else if(isset($args['description'])){
-            return Blog::where('description', $args['description'])->get();
-        }else if(isset($args['author'])){
-            return Blog::where('author', $args['author'])->get();
-        }else{
-            return Blog::all();
         }
+        
+        if(isset($args['title'])){
+            return Blog::where('title', $agrs['title'])->get();
+        }
+        
+        if(isset($args['description'])){
+            return Blog::where('description', $args['description'])->get();
+        }
+        
+        if(isset($args['author'])){
+            return Blog::where('author', $args['author'])->get();
+        }
+        
+        return Blog::all();
+        
     }
 }
